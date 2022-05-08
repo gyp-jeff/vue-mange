@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title class="a b">Document</title>
+  <style>
+    .a {
+      background-color: #fff;
+    }
+
+    .b {
+      background-color: #fff;
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <script>
+    // console.log(document.getElementsByClassName("a"));
+
+
+    // // 数组去重
+    // function unique1(val) {
+    //   var arr = [];
+    //   val.forEach(item => {
+    //     if (arr.indexOf(item) === -1) {
+    //       arr.push(item)
+    //     }
+    //   })
+    //   return arr
+    // }
+
+    // function unique2(val) {
+    //   var arr = [];
+    //   var obj = {};
+    //   val.forEach(item => {
+    //     if (!obj.hasOwnProperty(item)) {
+    //       obj[item] = true;
+    //       arr.push(item)
+    //     }
+    //   })
+    //   return arr
+    // }
+
+    // function unique3(arr) {
+    //   return [...new Set(arr)]
+    // }
+
+    // // 深克隆
+    // function deepClone1(obj) {
+    //   return JSON.parse(JSON.stringify(obj))
+    // }
+    // // 获取数据类型
+    // function getType(val) {
+    //   return Object.prototype.toString.call(val).slice(8, -1)
+    // }
+
+    // function deepClone2(obj) {
+    //   let type = getType(obj);
+    //   if (type === 'Object' || type === 'Array') {
+    //     const clone = type === 'Array' ? [] : {};
+    //     for (const i in obj) {
+    //       if (obj.hasOwnProperty(i)) {
+    //         clone[i] = deepClone2(obj[i])
+    //       }
+    //     }
+    //     return clone
+    //   } else {
+    //     return obj
+    //   }
+    // }
+
+    // const Array = [1, 2, 3, 4, 5]
+    // console.log(res);
+
+
+    function Foo() {
+      var i = 0
+      return function () {
+        console.log(i++);
+      }
+    }
+    var f1 = Foo()
+    // console.log(f1);
+    // console.log(f1);
+    f1();
+    console.log(f1);
+  </script>
+</body>
+
+</html>
