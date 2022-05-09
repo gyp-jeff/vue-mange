@@ -17,7 +17,7 @@
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>个人中心</el-dropdown-item>
-          <el-dropdown-item>退出</el-dropdown-item>
+          <el-dropdown-item @click.native="logOut">退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -41,6 +41,10 @@ export default {
     handleMenu() {
       this.$store.commit('tab/collapseMenu')
     },
+    logOut() {
+      localStorage.removeItem('token')
+      this.$router.replace({name:'login'})
+    },
   },
   watch: {
     '$route.name': {
@@ -50,22 +54,6 @@ export default {
       deep: true, // 深度监听
       immediate: true, // 第一次初始化渲染就可以监听到
     },
-
-    // $route: {
-    //   // $route可以用引号，也可以不用引号
-    //   handler(to, from) {
-    //     console.log('路由变化了')
-    //     console.log('当前页面路由：' + to)
-    //     console.log('上一个路由：' + from)
-    //   },
-    //   deep: true, // 深度监听
-    //   immediate: true, // 第一次初始化渲染就可以监听到
-    // },
-    // currentBreadCrumb() {
-    //   console.log(this.currentBreadCrumb)
-    //   console.log(this.$route.name)
-    //   // this.$store.commit('tab/currentBreadCrumb', this.currentBreadCrumb)
-    // },
   },
 }
 </script>

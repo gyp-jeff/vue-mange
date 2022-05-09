@@ -261,6 +261,8 @@ let paginationUserInfo = []
 let newArray = []
 // 用户当前分页
 let currentPage = null
+// 模拟 token
+let token = 'cf180c899350c2569482a823615260c01652020362355'
 
 
 //引入 express 包
@@ -387,7 +389,14 @@ app.get('/getAllInputValue', (req, res) => {
     res.send([paginationUserInfo, newArray.length])
 })
 
+app.get('/loginuser', (req, res) => {
+    if (req.query.username == 'admin' && req.query.password == 'admin') {
+        res.send(token)
+    } else {
+        res.send()
+    }
 
+})
 
 //监听端口 启动服务
 app.listen(3000, () => {

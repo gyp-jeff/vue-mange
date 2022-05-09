@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/login/index.vue')
+  },
+  {
     path: '/',
     // name: 'mainPart',
     component: () => import('../views/main.vue'),
@@ -37,9 +42,20 @@ const routes = [
 
 ]
 
+
 const router = new VueRouter({
   mode: 'hash',
   routes
+})
+
+router.beforeEach((to, from, next) => {
+
+  if (!localStorage.getItem('token') && to.name !== 'login') {
+    localStorage.removeItem('token')
+    next({ name: 'login' })
+  } else {
+    next()
+  }
 })
 
 export default router

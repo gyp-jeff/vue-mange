@@ -74,3 +74,12 @@ export const getAllInputValue = (page) => {
     params: { page: page }
   })
 }
+
+// 登录验证
+export const getLoginUser = (loginUser) => {
+  return request({
+    url: '/loginuser',
+    method: 'GET',
+    params: loginUser
+  })
+}

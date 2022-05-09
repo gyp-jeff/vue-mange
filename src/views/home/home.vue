@@ -12,7 +12,7 @@
         </div>
         <hr style="margin-top:20px">
         <div class="loginInfo">
-          <p>上次登录时间：<span>2022-04-07</span></p>
+          <p>上次登录时间：<span>{{timeStr}}</span></p>
           <p>上次登录地点：<span>南京</span></p>
         </div>
       </el-card>
@@ -76,6 +76,8 @@ export default {
     this.getLineChart()
     this.getBarChart()
     this.getPieChart()
+    // 获取当前时间
+    this.getTimeStr()
   },
   data() {
     return {
@@ -92,6 +94,7 @@ export default {
       chartYear: [],
       barData: [],
       pieData: [],
+      timeStr: '',
     }
   },
   methods: {
@@ -199,6 +202,18 @@ export default {
       }
       const myChart = echarts.init(this.$refs.pie)
       myChart.setOption(option)
+    },
+    // 获取当前时间
+    getTimeStr() {
+      let year, month, day
+      let date = new Date()
+      year = date.getFullYear()
+      month = date.getMonth() + 1
+      day = date.getDate()
+      month = month < 10 ? '0' + month : month
+      day = day < 10 ? '0' + day : day
+      this.timeStr = year + '-' + month + '-' + day
+      return this.timeStr
     },
   },
 }
